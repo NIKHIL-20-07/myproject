@@ -1,0 +1,155 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  /* The Gradient is on the BODY so it stays fixed behind everything */
+  background: linear-gradient(to bottom right, #1a1a2e, #f37335);
+  background-attachment: fixed; /* This makes the gradient look premium/static */
+  color: #fff;
+  overflow-x: hidden;
+}
+
+
+/* 2. The Sticky Header */
+.sticky-header {
+  /* This allows it to move up, then stick */
+  position: sticky;
+  top: 0;
+  
+  /* Visuals for the header bar */
+  text-align: center;
+  padding: 1rem 0;
+  z-index: 9999; /* STAYS ON TOP of content */
+  
+  /* Glassmorphism effect for when content slides under */
+  background: rgba(142, 84, 46, 0.95); /* Dark semi-transparent background */
+  backdrop-filter: blur(10px);        /* Blurs the content behind it */
+  box-shadow: 0 4px 30px rgba(251, 7, 7, 0.1);
+  
+  /* Transition for smooth load */
+  animation: fadeIn 1s ease-out;
+}
+
+.sticky-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3.5rem, 5vw, 3rem); /* Responsive text */
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+
+.nav-links {
+  display: flex;            /* Makes links go side-by-side */
+  justify-content: center;   /* Centers the row under your text */
+  gap: 10px;                /* Space between Home, Destination, etc. */
+  margin-top: 1.5rem;       /* Space between h2 and the links */
+}
+
+.nav-links a {
+  /* text-decoration: none;    Removes the underline */
+  color: rgb(248, 243, 243);
+  font-family: 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 2px;      /* Gives it a premium travel feel */
+  text-transform: uppercase; /* Optional: Makes links feel more like a menu */
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Standard FadeIn Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. The Content */
+.content {
+  background: #f4f4f4; /* White/Grey background */
+  color: #333;
+  position: relative;
+  z-index: 10; /* Higher than body, lower than header */
+  padding: 4rem 2rem;
+  border-radius: 20px 20px 0 0; /* Nice rounded top corners */
+  min-height: 100vh;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.2);
+}
+
+
+.travel-guide {
+  padding: 60px 5%;
+  background-color: #fdfaf6;
+}
+
+.guide-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.guide-intro h3 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: #8e542e; /* Matching your header color */
+}
+
+.season-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.season-block {
+  margin-bottom: 50px;
+}
+
+.season-header {
+  background: rgba(142, 84, 46, 0.95); /* Your header brown */
+  color: white;
+  padding: 15px 20px;
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-family: "Times New Roman", serif;
+}
+
+.guide-table th {
+  background-color: #f8f1ed;
+  color: #8e542e;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 15px;
+  text-align: left;
+}
+
+.guide-table tr:hover {
+  background-color: #fffaf0;
+}
+
+td.link a{
+  text-decoration:none;
+  color: inherit;
+}

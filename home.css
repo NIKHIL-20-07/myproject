@@ -1,0 +1,455 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  /* The Gradient is on the BODY so it stays fixed behind everything */
+  background: linear-gradient(to bottom right, #1a1a2e, #f37335);
+  background-attachment: fixed; /* This makes the gradient look premium/static */
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* 1. Top Spacer: Push title to approx center (40% down) */
+/* .hero-spacer-top {
+  height: 40vh;
+} */
+
+/* 2. The Sticky Header */
+.sticky-header {
+  /* This allows it to move up, then stick */
+  position: sticky;
+  top: 0;
+  
+
+  /* Visuals for the header bar */
+  text-align: center;
+  padding: 1rem 0;
+  z-index: 9999; /* STAYS ON TOP of content */
+
+  /* Glassmorphism effect for when content slides under */
+  background: rgba(142, 84, 46, 0.95); /* Dark semi-transparent background */
+  backdrop-filter: blur(10px); /* Blurs the content behind it */
+  box-shadow: 0 4px 30px rgba(251, 7, 7, 0.1);
+  /* Transition for smooth load */
+  animation: fadeIn 1s ease-out;
+}
+
+.sticky-header h1 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(3.5rem, 5vw, 3rem); /* Responsive text */
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.sticky-header h2 {
+  font-size: clamp(1.5rem, 2vw, 1.2rem);
+  font-weight: 300;
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.nav-links {
+  /* display: flex; */
+  /* justify-content: center; Centers the row under your text */
+  /* gap: 10px; Space between Home, Destination, etc. */
+  margin-top: 1.5rem; /* Space between h2 and the links */
+}
+
+.nav-links a {
+  /* text-decoration: none;    Removes the underline */
+  color: rgb(248, 243, 243);
+  font-family: "Times New Roman", serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 2px; /* Gives it a premium travel feel */
+  text-transform: uppercase; /* Optional: Makes links feel more like a menu */
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  padding: 0 3.5px;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Standard FadeIn Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. Bottom Spacer: The rest of the screen height before content */
+.hero-spacer-bottom {
+  height: 50vh; /* Fills the rest of the first screen */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Puts chevron at bottom */
+  padding-bottom: 2rem;
+}
+
+/* 4. The Content */
+.content {
+  background: #f4f4f4; /* White/Grey background */
+  color: #333;
+  position: relative;
+  z-index: 10; /* Higher than body, lower than header */
+  padding: 4rem 2rem;
+  border-radius: 20px 20px 0 0; /* Nice rounded top corners */
+  min-height: 100vh;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.intro-section {
+  padding: 100px 10%;
+  text-align: center;
+  background: #d09955;
+  color: #5e3a2e;
+  transition: transform 0.5s ease,box-shadow 0.5s ease;
+}
+
+.intro-section:hover{
+  box-shadow: 10px 10px 10px #d4a373;
+  transform: scale(1.005);
+}
+
+.sub-label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.intro-section h3 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  margin: 20px 0;
+}
+
+.intro-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.site-intro {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Light background to separate it from the hero */
+    text-align: center;
+}
+
+.intro-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.site-intro h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+}
+
+.intro-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    /* flex-wrap: wrap;  */
+}
+
+/* .intro-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+  } */
+  .intro-box {
+    display: inline-block; /* Instead of flex: 1 */
+    vertical-align: top;
+    width: 30%;            /* Adjust width to fit 3 in a row */
+    min-width: 250px;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+  .intro-box:hover {
+ box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.intro-box h3 {
+    color: #e67e22;
+    margin-bottom: 15px;
+}
+
+.intro-box p {
+    line-height: 1.6;
+    color: #555;
+}
+
+
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 50px 5%;
+}
+
+/* Animations */
+.scroll-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-down span {
+  width: 20px;
+  height: 20px;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(-45deg);
+  opacity: 0;
+  animation: fadeChevron 1.6s infinite;
+}
+
+.scroll-down span:nth-child(1) {
+  animation-delay: 0s;
+}
+.scroll-down span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.scroll-down span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeChevron {
+  0% {
+    opacity: 0;
+    transform: rotate(-45deg) translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-45deg) translateY(5px);
+  }
+}
+
+
+/* This now only affects the specific WHO section */
+.travel-advice {
+  max-width: 850px;
+  margin: 20px auto ;
+  padding: 20px;
+  background-color: #fdfaf5;
+  border-left: 5px solid #d4a373;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  cursor: pointer;
+ transition: transform 0.9s ease,box-shadow 0.9s ease;
+}
+
+.travel-advice:hover{
+  box-shadow: 50px 20px 25px #d4a373;
+  transform: scale(1.05);
+}
+
+.travel-advice h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.travel-advice abbr[title] {
+  text-decoration: none;
+  border-bottom: 2px dashed #d4a373;
+  cursor: help;
+}
+
+.travel-advice ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.travel-advice li {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 25px;
+}
+
+.travel-advice li::before {
+  content: "•";
+  color: #d4a373;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.travel-advice li b {
+  color: #2c3e50;
+  display: block;
+}
+.main-footer {
+  background-color: #5e3a2e; /* A solid version of your header brown */
+  color: white;
+  padding: 60px 0 20px;
+  margin-top: 50px;
+  font-family: "Times New Roman", serif;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows stacking on mobile */
+  gap: 40px;
+}
+
+.footer-brand h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  font-family: "Cinzel", serif;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-links nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a,
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  opacity: 1;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+
+/* --- RESPONSIVE MEDIA QUERY --- */
+
+/* This triggers for screens smaller than 768px (Phones/Tablets) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Header Adjustments */
+    .sticky-header h1 {
+        font-size: 2.2rem; /* Shrink title slightly for mobile */
+    }
+
+    .nav-links a {
+        display: block;      /* Stacks links vertically */
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+
+    /* 2. Intro Boxes (No Flexbox Replacement) */
+    .intro-grid {
+        display: block;      /* Change from flex to block for stacking */
+    }
+
+    .intro-box {
+        display: block;
+        width: 100%;         /* Make boxes full width */
+        margin-bottom: 20px;
+    }
+
+    /* 3. Footer Adjustments */
+    .footer-container {
+        display: block;      /* Stack footer sections */
+        text-align: center;
+    }
+
+    .footer-brand, .footer-links, .footer-social {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .social-icons {
+        justify-content: center; /* Since this is the only one using flex naturally */
+        display: block; 
+    }
+    
+    .social-icons a {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    /* 4. Content Padding */
+    .content {
+        padding: 2rem 1rem; /* Less padding on small screens */
+    }
+    
+    .intro-section {
+        padding: 50px 5%; /* Tighten up the intro */
+    }
+}
